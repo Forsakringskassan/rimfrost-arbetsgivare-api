@@ -25,13 +25,13 @@ allprojects {
 	}
 }
 
-project("example-spec",{
+project("arbetsgivare-spec",{
 	fkOpenApi {
 		generatorName.set("openapi-yaml")
 	}
 })
 
-project("example-jaxrs-spec",{
+project("arbetsgivare-jaxrs-spec",{
 	fkOpenApi {
 		generatorName.set("jaxrs-spec")
 	}
