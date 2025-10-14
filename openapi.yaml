@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: Fullmakts API
+  description: An example API to use for templating.
+  version: 1.0.0
+servers:
+  - url: https://api.example.com
+    description: Example server
+paths:
+  /api/alternatives:
+    get:
+      tags: [FullmaktsController]
+      summary: Health check endpoint
+      description: Returns a pong response to confirm the API is alive.
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlternativesResponse'
+  /api/ombud:
+    put:
+      tags: [FullmaktsController]
+      summary: Kontrollera ombud
+      description: Ombud namn.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OmbudRequest'
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OmbudResponse'
+        '204':
+          description: Ombud not found
+
+components:
+  schemas:
+    AlternativesResponse:
+      properties:
+        alternatives:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alternative'
+    Alternative:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "1"
+        name:
+          type: string
+          example: "Alternative 1"
+      required:
+        - id
+        - name  
+    OmbudRequest:
+      type: object
+      properties:
+        personnummer:
+          type: string
+          example: "YYYYMMDDXXXX"
+      required:
+        - personnummer
+    OmbudResponse:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "AAAAAA BBBBBB"
+      required:
+        - name
