@@ -1,3 +1,13 @@
+## 1.0.0 (2025-10-14)
+
+### Breaking changes
+
+-  triggar 1.0.0 ([49dea](https://github.com/Forsakringskassan/rimfrost-arbetsgivare-api/commit/49dead413941357) Tomas Bjerre)  
+
+### Features
+
+-  triggar 1.0.0 ([49dea](https://github.com/Forsakringskassan/rimfrost-arbetsgivare-api/commit/49dead413941357) Tomas Bjerre)  
+
 ## 0.1.0 (2025-10-14)
 
 ### Features
