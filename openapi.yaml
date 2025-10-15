@@ -1,26 +1,26 @@
 openapi: 3.0.3
 info:
-  title: Arbetsgivare API
+  title: Employer API
   version: 1.0.0
-  description: Kontrollera om en person har en arbetsgivare i Sverige
+  description: Check if a person has an employer in Sweden
 
 paths:
-  /arbetsgivare/{personnummer}:
+  /employer/{social_security_nr}:
     get:
-      tags: [ArbetsgivareController]
-      summary: Kontrollera om personen har en arbetsgivare i Sverige
-      description: Returnerar true om personen har en arbetsgivare i Sverige
+      summary: Check if person has employer in Sweden
+      description: Returns true if person has employer in Sweden
       parameters:
-        - name: personnummer
+        - name: social_security_nr
           in: path
           required: true
-          description: Svenskt personnummer, 12 siffror
+          description: Swedish social security number 12 digits
           schema:
             type: string
             pattern: '^\d{10}-\d{4}$'
+            example: "19990101-0123"
       responses:
         '200':
-          description: Förfrågan genomfördes utan problem
+          description: Request performed successfully
           content:
             application/json:
               schema:
@@ -28,16 +28,16 @@ paths:
                 properties:
                   result:
                     type: boolean
-                    description: True om personen har en arbetsgivare i Sverige
+                    description: True if person has employer in Sweden
                     example: true
               examples:
                 valid:
-                  summary: Personen har en arbetsgivare i Sverige
+                  summary: Person has employer in Sweden
                   value:
                     result: true
                 invalid:
-                  summary: Personen har ingen arbetsgivare i Sverige
+                  summary: Person has no employer in Sweden
                   value:
                     result: false
         '400':
-          description: Ogiltig förfrågan (t.ex. felaktigt format på personnummer)
+          description: Bad request (e.g. illegal format of social_security_nr)
