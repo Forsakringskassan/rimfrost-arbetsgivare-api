@@ -31,7 +31,7 @@ project("arbetsgivare-spec",{
 	}
 })
 
-project("arbetsgivare-jaxrs-spec",{
+project("rimfrost-arbetsgivare-api-jaxrs-spec",{
 	fkOpenApi {
 		generatorName.set("jaxrs-spec")
 	}

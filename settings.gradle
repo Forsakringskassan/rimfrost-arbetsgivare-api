@@ -1,1 +1,1 @@
-include "arbetsgivare-jaxrs-spec", "arbetsgivare-spec"
+include "rimfrost-arbetsgivare-api-jaxrs-spec", "rimfrost-arbetsgivare-api-spec"
