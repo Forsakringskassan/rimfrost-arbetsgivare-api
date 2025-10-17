@@ -1,3 +1,10 @@
+## 1.0.2 (2025-10-17)
+
+### Bug Fixes
+
+-  project name in build.gradle ([8a394](https://github.com/Forsakringskassan/rimfrost-arbetsgivare-api/commit/8a3942714aebbf5) Ulf Slunga)  
+-  Rename specs to align with naming for folkbokford ([77080](https://github.com/Forsakringskassan/rimfrost-arbetsgivare-api/commit/7708094616650c6) Ulf Slunga)  
+
 ## 1.0.1 (2025-10-16)
 
 ### Dependency updates
