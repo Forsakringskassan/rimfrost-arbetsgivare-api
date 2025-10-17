@@ -25,7 +25,7 @@ allprojects {
 	}
 }
 
-project("arbetsgivare-spec",{
+project("rimfrost-arbetsgivare-api-spec",{
 	fkOpenApi {
 		generatorName.set("openapi-yaml")
 	}
