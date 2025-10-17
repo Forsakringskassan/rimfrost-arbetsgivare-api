@@ -8,6 +8,7 @@ paths:
   /employer/{social_security_nr}:
     get:
       tags: [EmployerController]
+      operationId: getEmployer
       summary: Check if person has employer in Sweden
       description: Returns true if person has employer in Sweden
       parameters:
