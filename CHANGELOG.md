@@ -1,3 +1,10 @@
+## 1.0.3 (2025-10-17)
+
+### Bug Fixes
+
+-  add operationId ([641e2](https://github.com/Forsakringskassan/rimfrost-arbetsgivare-api/commit/641e229065b801a) Ulf Slunga)  
+-  add controller tag EmployerController to api spec ([78e7b](https://github.com/Forsakringskassan/rimfrost-arbetsgivare-api/commit/78e7bade208b75b) Ulf Slunga)  
+
 ## 1.0.2 (2025-10-17)
 
 ### Bug Fixes
