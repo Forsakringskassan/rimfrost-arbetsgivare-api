@@ -1,3 +1,9 @@
+## 1.0.4 (2025-10-20)
+
+### Bug Fixes
+
+-  format persnr ([9224e](https://github.com/Forsakringskassan/rimfrost-arbetsgivare-api/commit/9224e31eb11e763) Ulf Slunga)  
+
 ## 1.0.3 (2025-10-17)
 
 ### Bug Fixes
