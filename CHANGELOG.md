@@ -1,3 +1,9 @@
+## 1.0.5 (2025-10-23)
+
+### Bug Fixes
+
+-  svenska ([dd196](https://github.com/Forsakringskassan/rimfrost-arbetsgivare-api/commit/dd1968ac94ca17c) Ulf Slunga)  
+
 ## 1.0.4 (2025-10-20)
 
 ### Bug Fixes
