@@ -9,17 +9,15 @@ paths:
     get:
       tags: [ArbetsgivareController]
       operationId: getArbetsgivare
-      summary: Kolla om person har arbetsgivare
-      description: True om personen har arbetsgivare
+      summary: Hämta information om personens arbetsgivare
+      description: Hämta information om personens arbetsgivare
       parameters:
         - name: personnummer
           in: path
           required: true
           description: Svenskt personnummer 12 siffror
           schema:
-            type: string
-            pattern: '^\d{8}-\d{4}$'
-            example: "19990101-0123"
+            $ref: '#/components/schemas/Persnr'
       responses:
         '200':
           description: Förfrågan genomförd OK
@@ -28,18 +26,67 @@ paths:
               schema:
                 type: object
                 properties:
-                  result:
-                    type: boolean
-                    description: True om personen har arbetsgivare
-                    example: true
+                  anstallningar:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Anstallning'
               examples:
-                valid:
-                  summary: Person har arbetsgivare
+                tvaAnstallningar:
+                  summary: Exempel med två anställningar
                   value:
-                    result: true
-                invalid:
-                  summary: Person har inte arbetsgivare
-                  value:
-                    result: false
+                    anstallningar:
+                      - startdag: "2020-01-01"
+                        slutdag: "2021-06-30"
+                        arbetstid: 75
+                        organisation:
+                          nummer: "123456-7890"
+                          namn: "Exempel AB"
+                      - startdag: "2021-07-01"
+                        slutdag: "-"
+                        arbetstid: 100
+                        organisation:
+                          nummer: "987654-3210"
+                          namn: "Demo AB"
         '400':
           description: Bad request (t.ex. felaktigt format på personnummer)
+        '404':
+          description: Finns ingen person för personnummer
+components:
+  schemas:
+    Persnr:
+      type: string
+      pattern: '^\d{8}-\d{4}$'
+      example: "19990101-0123"
+    Anstallning:
+      type: object
+      properties:
+        startdag:
+          type: string
+          format: date
+          description: Startdatum för anställningen
+          example: "2020-01-01"
+        slutdag:
+          type: string
+          description: Slutdatum för anställningen, "-" om pågående
+          example: "-"
+        arbetstid:
+          $ref: '#/components/schemas/Arbetstid'
+        organisation:
+          $ref: '#/components/schemas/Organisation'
+    Organisation:
+      type: object
+      properties:
+        nummer:
+          type: string
+          description: Organisationsnummer
+          example: "123456-7890"
+        namn:
+          type: string
+          description: Organisationsnamn
+          example: "Exempel AB"
+    Arbetstid:
+      type: integer
+      minimum: 0
+      maximum: 100
+      description: Ett procentvärde mellan 0 och 100
+      example: 75
