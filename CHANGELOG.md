@@ -1,3 +1,22 @@
+## 1.1.0 (2025-11-28)
+
+### Bug Fixes
+
+-  **deps**  update dependency se.fk.gradle:gradle-conventions to v1.18.1 ([650a4](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/650a4bb03649dcc) renovate[bot])  
+-  **deps**  update jackson monorepo to v2.20.1 ([ff229](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/ff229e02b2c946d) renovate[bot])  
+
+### Dependency updates
+
+- update gradle to v9.2.1 ([1639f](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/1639f11142a2149) renovate[bot])  
+- update gradle to v9.2.0 ([6b5bf](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/6b5bf05d5430046) renovate[bot])  
+### Other changes
+
+**Remove myself from CODEOWNERS**
+
+
+[4a1fc](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/4a1fc6f7cdc8634) Tomas Bjerre *2025-10-28 13:10:49*
+
+
 ## 1.0.5 (2025-10-23)
 
 ### Bug Fixes
