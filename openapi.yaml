@@ -42,7 +42,7 @@ paths:
                           nummer: "123456-7890"
                           namn: "Exempel AB"
                       - startdag: "2021-07-01"
-                        slutdag: "-"
+                        slutdag: null
                         arbetstid: 100
                         organisation:
                           nummer: "987654-3210"
@@ -67,8 +67,10 @@ components:
           example: "2020-01-01"
         slutdag:
           type: string
-          description: Slutdatum för anställningen, "-" om pågående
-          example: "-"
+          format: date
+          nullable: true
+          description: Slutdatum för anställningen, null om pågående
+          example: "2020-12-12"
         arbetstid:
           $ref: '#/components/schemas/Arbetstid'
         organisation:
