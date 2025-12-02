@@ -1,3 +1,17 @@
+## 1.1.1 (2025-12-02)
+
+### Bug Fixes
+
+-  update slutdag to be nullable ([bf034](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/bf03432129beee5) Nils Elveros)  
+
+### Other changes
+
+**Test to add the missing package**
+
+
+[a32f9](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/a32f9351677d57f) Nils Elveros *2025-12-02 07:16:07*
+
+
 ## 1.1.0 (2025-11-28)
 
 ### Bug Fixes
