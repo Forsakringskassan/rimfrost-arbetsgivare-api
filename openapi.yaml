@@ -1,8 +1,8 @@
 openapi: 3.0.3
 info:
   title: Arbetsgivare API
-  version: 1.0.0
-  description: API för att kolla om personer har arbetsgivare
+  version: 1.1.0
+  description: API för att hämta arbetsgivar- och löneinformation för personer
 
 paths:
   /arbetsgivare/{personnummer}:
@@ -51,12 +51,82 @@ paths:
           description: Bad request (t.ex. felaktigt format på personnummer)
         '404':
           description: Finns ingen person för personnummer
+
+  /arbetsgivare/{personnummer}/specificerad-lon:
+    get:
+      tags: [ArbetsgivareController]
+      operationId: getSpecificeradLon
+      summary: Hämta specificerad lön för en person
+      description: |
+        Hämtar aggregerad löneinformation för en person under en angiven period.
+        Returnerar summan av alla lönerader (grundlön, tillägg, avdrag).
+      parameters:
+        - name: personnummer
+          in: path
+          required: true
+          description: Svenskt personnummer 12 siffror
+          schema:
+            $ref: '#/components/schemas/Persnr'
+        - name: fromDatum
+          in: query
+          required: true
+          description: Periodens startdatum
+          schema:
+            type: string
+            format: date
+            example: "2025-02-01"
+        - name: tomDatum
+          in: query
+          required: true
+          description: Periodens slutdatum
+          schema:
+            type: string
+            format: date
+            example: "2025-02-28"
+      responses:
+        '200':
+          description: Specificerad lön hämtad
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpecificeradLon'
+              examples:
+                normalLon:
+                  summary: Exempel med 4 lönerader
+                  value:
+                    personnummer: "19850101-1234"
+                    periodFrom: "2025-02-01"
+                    periodTom: "2025-02-28"
+                    lonesumma: 40000.0
+                    antalLonerader: 4
+                    lonerader:
+                      - typ: "GRUNDLON"
+                        beskrivning: "Månadslön"
+                        belopp: 42000.0
+                      - typ: "TILLAGG"
+                        beskrivning: "OB-tillägg"
+                        belopp: 2000.0
+                      - typ: "AVDRAG"
+                        beskrivning: "Frånvaro sjukdom"
+                        belopp: -2000.0
+                      - typ: "AVDRAG"
+                        beskrivning: "Frånvaro VAB"
+                        belopp: -2000.0
+                    organisation:
+                      nummer: "556677-8899"
+                      namn: "Testföretag AB"
+        '400':
+          description: Bad request (t.ex. felaktigt format på personnummer eller datum)
+        '404':
+          description: Finns ingen person eller löneinformation för personnummer
+
 components:
   schemas:
     Persnr:
       type: string
       pattern: '^\d{8}-\d{4}$'
-      example: "19990101-0123"
+      example: "19850101-1234"
+
     Anstallning:
       type: object
       properties:
@@ -75,20 +145,93 @@ components:
           $ref: '#/components/schemas/Arbetstid'
         organisation:
           $ref: '#/components/schemas/Organisation'
+
     Organisation:
       type: object
       properties:
         nummer:
           type: string
           description: Organisationsnummer
-          example: "123456-7890"
+          example: "556677-8899"
         namn:
           type: string
           description: Organisationsnamn
-          example: "Exempel AB"
+          example: "Testföretag AB"
+
     Arbetstid:
       type: integer
       minimum: 0
       maximum: 100
       description: Ett procentvärde mellan 0 och 100
-      example: 75
+      example: 100
+
+    SpecificeradLon:
+      type: object
+      description: Aggregerad löneinformation för en period
+      required:
+        - personnummer
+        - periodFrom
+        - periodTom
+        - lonesumma
+        - antalLonerader
+      properties:
+        personnummer:
+          $ref: '#/components/schemas/Persnr'
+        periodFrom:
+          type: string
+          format: date
+          description: Periodens startdatum
+          example: "2025-02-01"
+        periodTom:
+          type: string
+          format: date
+          description: Periodens slutdatum
+          example: "2025-02-28"
+        lonesumma:
+          type: number
+          format: double
+          description: Summan av alla lönerader för perioden
+          example: 40000.0
+        antalLonerader:
+          type: integer
+          description: Antal lönerader som summerats
+          example: 4
+        lonerader:
+          type: array
+          description: Detaljerade lönerader
+          items:
+            $ref: '#/components/schemas/Lonerad'
+        organisation:
+          $ref: '#/components/schemas/Organisation'
+
+    Lonerad:
+      type: object
+      description: En enskild lönerad (grundlön, tillägg eller avdrag)
+      required:
+        - typ
+        - belopp
+      properties:
+        typ:
+          $ref: '#/components/schemas/LoneradTyp'
+        beskrivning:
+          type: string
+          description: Beskrivning av löneraden
+          example: "Månadslön"
+        belopp:
+          type: number
+          format: double
+          description: Belopp i kronor (negativt för avdrag)
+          example: 42000.0
+
+    LoneradTyp:
+      type: string
+      enum:
+        - GRUNDLON
+        - TILLAGG
+        - AVDRAG
+      description: |
+        Typ av lönerad:
+        * GRUNDLON - Grundlön/månadslön
+        * TILLAGG - Tillägg (OB, övertid, etc.)
+        * AVDRAG - Avdrag (frånvaro, etc.)
+      example: "GRUNDLON"
