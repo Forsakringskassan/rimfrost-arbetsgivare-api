@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Arbetsgivare API
-  version: 1.1.0
+  version: 1.1.1
   description: API för att hämta arbetsgivar- och löneinformation för personer
 
 paths:
@@ -40,7 +40,7 @@ paths:
                         arbetstid: 75
                         organisation:
                           nummer: "123456-7890"
-                          namn: "Exempel AB"
+                          namn: "Region Dalarna"
                       - startdag: "2021-07-01"
                         slutdag: null
                         arbetstid: 100
@@ -98,7 +98,6 @@ paths:
                     periodFrom: "2025-02-01"
                     periodTom: "2025-02-28"
                     lonesumma: 40000.0
-                    antalLonerader: 4
                     lonerader:
                       - typ: "GRUNDLON"
                         beskrivning: "Månadslön"
@@ -114,7 +113,7 @@ paths:
                         belopp: -2000.0
                     organisation:
                       nummer: "556677-8899"
-                      namn: "Testföretag AB"
+                      namn: "Region Dalarna"
         '400':
           description: Bad request (t.ex. felaktigt format på personnummer eller datum)
         '404':
@@ -156,7 +155,7 @@ components:
         namn:
           type: string
           description: Organisationsnamn
-          example: "Testföretag AB"
+          example: "Region Dalarna"
 
     Arbetstid:
       type: integer
@@ -173,7 +172,6 @@ components:
         - periodFrom
         - periodTom
         - lonesumma
-        - antalLonerader
       properties:
         personnummer:
           $ref: '#/components/schemas/Persnr'
@@ -192,10 +190,6 @@ components:
           format: double
           description: Summan av alla lönerader för perioden
           example: 40000.0
-        antalLonerader:
-          type: integer
-          description: Antal lönerader som summerats
-          example: 4
         lonerader:
           type: array
           description: Detaljerade lönerader
