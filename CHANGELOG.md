@@ -1,3 +1,29 @@
+## 1.1.2 (2026-02-18)
+
+### Bug Fixes
+
+-  Ta bort antalLonerader från SpecificeradLon ([2e64e](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/2e64e3bd49c68fc) Jorgen Lindstrom)  
+-  **deps**  update dependency org.openapitools:jackson-databind-nullable to v0.2.9 ([6312b](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/6312b7dd13a6d72) renovate[bot])  
+-  **deps**  update jackson monorepo ([30223](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/302232961ab611c) renovate[bot])  
+-  **deps**  update dependency org.openapitools:jackson-databind-nullable to v0.2.8 ([07dfa](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/07dfadcffd4d84e) renovate[bot])  
+
+### Dependency updates
+
+- update gradle to v9.3.1 ([88bff](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/88bffe67e03273e) renovate[bot])  
+- update gradle to v9.3.0 ([7302b](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/7302b163d089064) renovate[bot])  
+### Other changes
+
+**Ändrade tillbaka version till 1.1.1 i gradle.properties**
+
+
+[688b9](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/688b935be07d9f7) Jorgen Lindstrom *2026-02-17 15:19:35*
+
+**added specificeradLon, lonerad, loneradTyp**
+
+
+[469ef](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/469efb5676a422d) Jorgen Lindstrom *2026-02-13 11:11:10*
+
+
 ## 1.1.1 (2025-12-02)
 
 ### Bug Fixes
