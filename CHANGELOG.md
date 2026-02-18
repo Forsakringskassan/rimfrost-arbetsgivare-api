@@ -1,3 +1,9 @@
+## 1.1.3 (2026-02-18)
+
+### Bug Fixes
+
+-  removing NPM_TOKEN ([18546](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/18546eba5f3eb0b) Tomas Bjerre)  
+
 ## 1.1.2 (2026-02-18)
 
 ### Bug Fixes
