@@ -1,3 +1,9 @@
+## 1.1.5 (2026-02-18)
+
+### Bug Fixes
+
+-  bump ([913fb](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/913fbcd7595ccfe) Tomas Bjerre)  
+
 ## 1.1.4 (2026-02-18)
 
 ### Bug Fixes
