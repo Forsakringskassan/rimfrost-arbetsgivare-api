@@ -1,3 +1,21 @@
+## 2.0.0 (2026-04-28)
+
+### Breaking changes
+
+-  release 1.0 ([4a1be](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/4a1beb796f8448c) Nils Elveros)  
+
+### Features
+
+-  release 1.0 ([4a1be](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/4a1beb796f8448c) Nils Elveros)  
+
+### Bug Fixes
+
+-  **deps**  update jackson monorepo to v2.21.1 ([94812](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/9481280150e8c11) renovate[bot])  
+
+### Dependency updates
+
+- update gradle to v9.4.1 ([d0dec](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/d0dec36d2b987e1) renovate[bot])  
+- update gradle to v9.4.0 ([d3d34](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/d3d3440f8f10f13) renovate[bot])  
 ## 1.1.5 (2026-02-18)
 
 ### Bug Fixes
