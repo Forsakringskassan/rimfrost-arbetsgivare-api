@@ -1,3 +1,14 @@
+## 2.0.1 (2026-06-03)
+
+### Bug Fixes
+
+-  **deps**  update jackson monorepo to v2.21.3 ([3bf1c](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/3bf1c23cf0a5a41) renovate[bot])  
+-  **deps**  update dependency org.openapitools:jackson-databind-nullable to v0.2.10 ([a396d](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/a396d18bac7cbd5) renovate[bot])  
+
+### Dependency updates
+
+- update gradle to v9.5.1 ([c79e5](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/c79e53e3b12aff2) renovate[bot])  
+- update gradle to v9.5.0 ([f6810](https://github.com/Forsakringskassan/rimfrost-service-arbetsgivare-openapi/commit/f68105a30e82bf7) renovate[bot])  
 ## 2.0.0 (2026-04-28)
 
 ### Breaking changes
